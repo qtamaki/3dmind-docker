@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -d volumes/sql ]];then
-  svn up volumes/sql
+  svn up --non-interactive --no-auth-cache --username docker --password docker99 volumes/sql
 else
   (
   mkdir -p volumes
