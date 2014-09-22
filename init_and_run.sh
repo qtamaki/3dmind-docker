@@ -11,6 +11,7 @@ else
 fi
 
 # Run the unicorn server.
+docker pull 3dmind/3dmind
 docker run -it -d --name 3dmind1 --link 3dmind-mysql1:db -e OWNER_UID=`id -u` -e OWNER_GID=`id -g` -p 3000:3000 -v `pwd`/tools:/work/tools -v `pwd`/volumes/three-d-mind:/work/three-d-mind 3dmind/3dmind /bin/bash -x /work/tools/init.sh
 #docker attach 3dmind1
 

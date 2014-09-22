@@ -1,5 +1,7 @@
 #!/bin/bash
 
+service postfix start
+
 . /etc/profile
 groupadd -g $OWNER_GID owner
 if [[ $? -ne 9 ]];then

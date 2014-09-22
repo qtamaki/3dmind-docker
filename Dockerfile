@@ -26,12 +26,14 @@ FROM ubuntu:latest
   RUN mkdir -p /work/three-d-mind
   RUN mkdir -p /work/sql
   RUN cd /work && git clone https://github.com/qtamaki/three-d-mind.git
-  RUN . /etc/profile && cd /work/three-d-mind && bundle install
+  RUN . /etc/profile && cd /work/three-d-mind && bundle install && echo "dummy 1" > /dev/null
 
   RUN cd /work && curl -O http://nodejs.org/dist/v0.10.31/node-v0.10.31-linux-x64.tar.gz && tar xvzf node-v0.10.31-linux-x64.tar.gz
   ENV PATH /work/node-v0.10.31-linux-x64/bin:$PATH
   RUN echo 'PATH=/work/node-v0.10.31-linux-x64/bin:$PATH' >> /etc/profile.d/node.sh
   RUN npm install typescript
+
+  RUN apt-get install -y --no-install-recommends postfix
 
   VOLUME ["/work/three-d-mind", "/work/tools"]
   

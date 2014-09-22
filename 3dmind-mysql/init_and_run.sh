@@ -7,6 +7,7 @@ if [[ -d volumes/mysql ]];then
   exit 1
 fi
 
+docker pull 3dmind/3dmind-mysql
 docker run -it -d --name 3dmind-mysql1 3dmind/3dmind-mysql /bin/bash
 docker stop 3dmind-mysql1
 docker cp 3dmind-mysql1:/var/lib/mysql volumes/
