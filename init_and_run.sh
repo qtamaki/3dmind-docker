@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [[ -d volumes/three-d-mind ]];then
-  (cd volumes/three-d-mind;git pull)
-else
-  (mkdir -p volumes && cd volumes && git clone https://github.com/qtamaki/three-d-mind.git)
-  if [[ $? -ne 0 ]];then
-    echo "git clone faild."
-    exit 1
-  fi
-fi
+#if [[ -d volumes/three-d-mind ]];then
+#  (cd volumes/three-d-mind;git pull)
+#else
+#  (mkdir -p volumes && cd volumes && git clone https://github.com/qtamaki/three-d-mind.git)
+#  if [[ $? -ne 0 ]];then
+#    echo "git clone faild."
+#    exit 1
+#  fi
+#fi
 
 # Run the unicorn server.
 docker pull 3dmind/3dmind
